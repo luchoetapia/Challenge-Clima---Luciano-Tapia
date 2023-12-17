@@ -20,7 +20,7 @@ li, a, button, p1 {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 18px;
-    color: #000000;
+    color: #edf0f1;
     text-decoration: none;
 }
 
@@ -29,12 +29,13 @@ li, a, button, p1 {
 }
 
 .navbar {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10%;
     padding: 10px 8%;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #24252A;
 }
 
 .nav__links {

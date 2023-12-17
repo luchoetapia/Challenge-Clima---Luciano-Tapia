@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeItem from "../components/views/HomeItem.vue"
+import HomeItem from "../views/HomeItem.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

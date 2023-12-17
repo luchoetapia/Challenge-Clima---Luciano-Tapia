@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Topbar from "./components/topbar/topbar.vue"
+import { RouterView } from 'vue-router'
+import Topbar from "./components/topbar/Top-bar.vue"
 </script>
 
 <template>
@@ -12,3 +12,9 @@ import Topbar from "./components/topbar/topbar.vue"
     <RouterView />
   </main>
 </template>
+
+<style>
+  body {
+    background-color: #24252A;
+  }
+</style>
