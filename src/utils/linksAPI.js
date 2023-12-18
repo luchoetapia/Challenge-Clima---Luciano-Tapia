@@ -8,5 +8,5 @@ export const link24Horas = "c"
 
 export const linkBuscador = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete"
 
-export const linkTopCiudades = "e"
+export const linkTopCiudades = "http://dataservice.accuweather.com/locations/v1/topcities"
 

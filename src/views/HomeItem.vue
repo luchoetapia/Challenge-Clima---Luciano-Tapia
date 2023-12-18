@@ -1,5 +1,5 @@
 <script setup>
-    import Wellcome from "../components/home/Well-come.vue"
+    import Wellcome from "../components/home/Wellcome-Component.vue"
 </script>
 
 <template>

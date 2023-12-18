@@ -2,28 +2,45 @@
 import axios from 'axios'
 import { linkBuscador } from '@/utils/linksAPI'
 import { apiKey } from '@/utils/apiKey'
+import PopularCities from './PopularCities.vue'
+import SearchCard from './Search-card.vue'
 
 export default {
   data() {
     return {
       search: '',
-      cities: {}
+      cities: [],
+      isEmpty: true
     }
   },
-
   methods: {
     searchCities() {
+      this.isEmpty = true
+
       axios
         .get(`${linkBuscador}?apikey=${apiKey}&q=${this.search}&language=es`)
 
         .then((response) => {
-          this.cities = response
+          this.cities = response.data
+          this.isNotEmpty()
         })
 
         .catch((err) => {
           console.log(err)
         })
+    },
+
+    isNotEmpty() {
+      if (this.cities.lenght === 0) {
+        this.isEmpty = true
+      } else {
+        this.isEmpty = false
+      }
     }
+  },
+  components: {
+    SearchCard,
+    PopularCities
   }
 }
 </script>
@@ -38,11 +55,25 @@ export default {
         type="text"
         placeholder="Buscar ciudad..."
         v-model="search"
-        v-on:input="searchCities"
       />
-      <button class="searchButton">Buscar</button>
+
+      <button class="button" v-on:click="searchCities">Buscar</button>
     </div>
   </div>
+
+  <div>
+    <div class="title">
+      <h1>Resultados de la busqueda</h1>
+    </div>
+
+    <div class="resultados" v-if="!isEmpty">
+      <SearchCard :cityRecived="cities[0]" />
+    </div>
+
+    <div class="loading" v-if="isEmpty">No se encontraron resultados</div>
+  </div>
+
+  <PopularCities />
 </template>
 
 <style scoped>
@@ -58,7 +89,7 @@ export default {
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 50px;
 }
 
@@ -78,7 +109,7 @@ h1 {
 }
 
 .input-box .icon,
-.input-box button {
+.input-box .button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -101,7 +132,7 @@ h1 {
   border: none;
 }
 
-.input-box button {
+.input-box .button {
   right: 20px;
   font-size: 16px;
   font-weight: 400;
@@ -115,5 +146,11 @@ h1 {
 
 .input-box .button.clicked {
   transform: translateY(-50%) scale(0.98);
+}
+
+.resultados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

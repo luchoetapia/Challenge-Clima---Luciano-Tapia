@@ -12,9 +12,3 @@ import Topbar from "./components/topbar/Top-bar.vue"
     <RouterView />
   </main>
 </template>
-
-<style>
-  body {
-    background-color: #24252A;
-  }
-</style>
