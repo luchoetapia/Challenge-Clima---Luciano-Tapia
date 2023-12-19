@@ -48,7 +48,7 @@ li, a, button, p1 {
 
 .nav__links li {
     display: inline-block;
-    padding: 0px 20px;
+    padding: 0px 10px;
 }
 
 .nav__links li a {

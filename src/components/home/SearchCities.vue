@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       cities: [],
-      find: false
+      found: false
     }
   },
   props: {
@@ -35,9 +35,9 @@ export default {
     cities: function () {
         console.log(this.cities)
       if (this.cities.length === 0) {
-        this.find = false
+        this.found = false
       } else {
-        this.find = true
+        this.found = true
       }
     }
   }
@@ -50,7 +50,7 @@ export default {
       <h1>Resultados de la busqueda</h1>
     </div>
 
-    <div class="list" v-if="find">
+    <div class="list" v-if="found">
       <ul>
         <li v-for="city in cities">
           <CityCard :city="city" />
@@ -58,7 +58,7 @@ export default {
       </ul>
     </div>
 
-    <div v-if="!find">
+    <div v-if="!found" class="notFound">
       <p1>No se encontraron resultados</p1>
     </div>
   </div>
@@ -84,6 +84,7 @@ p1 {
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 10px 0;
 }
 
 .title {
@@ -95,7 +96,16 @@ p1 {
 .list ul {
   width: 80%;
 }
+
 .list ul li {
   list-style: none;
+}
+
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
 }
 </style>
