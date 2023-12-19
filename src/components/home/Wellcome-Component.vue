@@ -3,43 +3,55 @@ import axios from 'axios'
 import { linkBuscador } from '@/utils/linksAPI'
 import { apiKey } from '@/utils/apiKey'
 import PopularCities from './PopularCities.vue'
-import SearchCard from './Search-card.vue'
+import CityCard from './City-Card.vue'
 
 export default {
   data() {
     return {
       search: '',
-      cities: [],
-      isEmpty: true
+      cities: [{
+        LocalizedName: 'Buenos Aires',
+        AdministrativeArea: { LocalizedName: 'CABA' },
+        Country: { LocalizedName: 'Argentina' }
+      },
+      {
+        LocalizedName: 'Cordoba',
+        AdministrativeArea: { LocalizedName: 'Cordoba' },
+        Country: { LocalizedName: 'Argentina' }
+      },
+      {
+        LocalizedName: 'Mendoza',
+        AdministrativeArea: { LocalizedName: 'Mendoza' },
+        Country: { LocalizedName: 'Argentina' }
+      },
+      {
+        LocalizedName: 'Rosario',
+        AdministrativeArea: { LocalizedName: 'Santa fe' },
+        Country: { LocalizedName: 'Argentina' }
+      },
+      {
+        LocalizedName: 'Posadas',
+        AdministrativeArea: { LocalizedName: 'Entre Rios' },
+        Country: { LocalizedName: 'Argentina' }
+      }
+    ],
     }
   },
   methods: {
     searchCities() {
-      this.isEmpty = true
-
-      axios
-        .get(`${linkBuscador}?apikey=${apiKey}&q=${this.search}&language=es`)
+      axios.get(`${linkBuscador}?apikey=${apiKey}&q=${this.search}&language=es`)
 
         .then((response) => {
           this.cities = response.data
-          this.isNotEmpty()
         })
 
         .catch((err) => {
           console.log(err)
         })
-    },
-
-    isNotEmpty() {
-      if (this.cities.lenght === 0) {
-        this.isEmpty = true
-      } else {
-        this.isEmpty = false
-      }
     }
   },
   components: {
-    SearchCard,
+    CityCard,
     PopularCities
   }
 }
@@ -57,20 +69,22 @@ export default {
         v-model="search"
       />
 
-      <button class="button" v-on:click="searchCities">Buscar</button>
+      <button class="button" >Buscar</button>
     </div>
   </div>
 
-  <div>
+  <div class="results">
     <div class="title">
       <h1>Resultados de la busqueda</h1>
     </div>
 
-    <div class="resultados" v-if="!isEmpty">
-      <SearchCard :cityRecived="cities[0]" />
+    <div class="list">
+      <ul>
+        <li v-for="city in cities" >
+          <CityCard :city="city" />
+        </li>
+      </ul>
     </div>
-
-    <div class="loading" v-if="isEmpty">No se encontraron resultados</div>
   </div>
 
   <PopularCities />
@@ -148,9 +162,29 @@ h1 {
   transform: translateY(-50%) scale(0.98);
 }
 
-.resultados {
+.results {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.title {
+  border-bottom: 1px solid #aaaaaa;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.list ul {
+  width: 80%;
+}
+.list ul li {
+  list-style: none;
 }
 </style>

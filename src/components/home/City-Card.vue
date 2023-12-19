@@ -1,19 +1,11 @@
 <script>
 export default {
-  data() {
-    return {
-      city: {
+  props: {
+    city: {
         LocalizedName: '',
         AdministrativeArea: { LocalizedName: '' },
         Country: { LocalizedName: '' }
-      }
     }
-  },
-  props: {
-    cityRecived: {}
-  },
-  mounted() {
-    this.city = this.cityRecived
   }
 }
 </script>
@@ -21,8 +13,8 @@ export default {
 <template>
   <div class="card">
     <div class="city">
-      <p1 class="name">{{ city.LocalizedName }}</p1>
-      <p2 class="state">{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p2>
+      <strong class="name">{{ city.LocalizedName }}</strong>
+      <p1 class="state">{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1>
     </div>
 
     <button class="button"><fa icon="arrow-right" /></button>
@@ -30,19 +22,32 @@ export default {
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap');
+
 .card {
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.city {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.city strong {
+  font-size: 20px;
+}
+
+.city p1 {
+  font-size: 16px;
 }
 
 .name {
-    display: grid;
-    
+  display: grid;
 }
 
 .button {
