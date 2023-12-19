@@ -33,7 +33,6 @@ export default {
     },
 
     cities: function () {
-        console.log(this.cities)
       if (this.cities.length === 0) {
         this.found = false
       } else {

@@ -2,9 +2,18 @@
 export default {
   props: {
     city: {
-        LocalizedName: '',
-        AdministrativeArea: { LocalizedName: '' },
-        Country: { LocalizedName: '' }
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      cit2: this.city
+    }
+  },
+  methods: {
+    redirect() {
+      this.$router.push({ name: 'city', query: { key: this.city.Key } })
     }
   }
 }
@@ -14,10 +23,12 @@ export default {
   <div class="card">
     <div class="city">
       <strong class="name">{{ city.LocalizedName }}</strong>
-      <p1 class="state">{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1>
+      <p1 class="state"
+        >{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1
+      >
     </div>
 
-    <button class="button"><fa icon="arrow-right" /></button>
+    <button class="button" @click="redirect" role="link"><fa icon="arrow-right" /></button>
   </div>
 </template>
 

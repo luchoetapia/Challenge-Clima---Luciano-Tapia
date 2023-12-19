@@ -16,7 +16,7 @@ const router = createRouter({
 
     },
     {
-      path: '/city/:id',
+      path: '/city',
       name: 'city',
       component: CityView
     }
