@@ -20,7 +20,6 @@ export default {
         .get(`${linkWeatherNow}/${this.cityID}?apikey=${apiKey}&language=es&details=true`)
 
         .then((response) => {
-          console.log(response.data[0])
           this.weather = response.data[0]
           this.isVisible = true
         })
@@ -126,12 +125,13 @@ export default {
 
 .secondaryData .table {
   display: grid;
-  width: 40%;
+  width: 45%;
 }
 
 .data {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px;
 }
 

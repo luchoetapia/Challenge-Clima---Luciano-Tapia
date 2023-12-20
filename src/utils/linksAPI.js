@@ -1,4 +1,4 @@
-export const linkHoy = 'a'
+export const linkHoy = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day'
 
 export const link5Dias = "b"
 

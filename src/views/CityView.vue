@@ -3,6 +3,7 @@ import axios from 'axios'
 import { apiKey } from '../utils/apiKey'
 import { linkLocationKey } from '../utils/linksAPI'
 import WeatherNow from '@/components/city/WeatherNow.vue'
+import DailyForecast from '@/components/city/DailyForecast.vue'
 
 export default {
   data() {
@@ -28,7 +29,7 @@ export default {
   mounted() {
     this.getName()
   },
-  components: { WeatherNow }
+  components: { WeatherNow, DailyForecast }
 }
 </script>
 
@@ -43,17 +44,8 @@ export default {
   <div class="main">
     <div class="weather">
       <WeatherNow :cityID="cityID" />
+      <DailyForecast :cityID="cityID" />
     </div>
-  </div>
-
-  <div class="main">
-    <div class="city">
-      <strong>Pronóstico para hoy</strong>
-    </div>
-  </div>
-
-  <div class="main">
-
   </div>
 
   <div class="main">
