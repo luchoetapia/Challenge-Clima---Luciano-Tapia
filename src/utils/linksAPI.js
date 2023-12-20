@@ -10,3 +10,7 @@ export const linkBuscador = "http://dataservice.accuweather.com/locations/v1/cit
 
 export const linkTopCiudades = "http://dataservice.accuweather.com/locations/v1/topcities"
 
+export const linkLocationKey = "http://dataservice.accuweather.com/locations/v1"
+
+export const linkWeatherNow = "http://dataservice.accuweather.com/currentconditions/v1"
+

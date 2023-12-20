@@ -23,9 +23,7 @@ export default {
   <div class="card">
     <div class="city">
       <strong class="name">{{ city.LocalizedName }}</strong>
-      <p1 class="state"
-        >{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1
-      >
+      <p1 class="state">{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1>
     </div>
 
     <button class="button" @click="redirect" role="link"><fa icon="arrow-right" /></button>
