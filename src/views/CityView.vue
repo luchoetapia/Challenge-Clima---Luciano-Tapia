@@ -1,69 +1,25 @@
 <script>
 import axios from 'axios'
+import { apiKey } from '../utils/apiKey'
 import { linkLocationKey } from '../utils/linksAPI'
-import { apiKey } from '@/utils/apiKey'
-import { linkWeatherNow } from '../utils/linksAPI'
+import WeatherNow from '@/components/city/WeatherNow.vue'
 
 export default {
   data() {
     return {
       cityID: this.$route.query.key,
-      city: {
-        LocalizedName: '',
-        AdministrativeArea: { LocalizedName: '' },
-        Country: { LocalizedName: '' }
-      },
-      weather: {
-        WeatherText: '',
-        WeatherIcon: 0,
-        Temperature: {
-          Metric: {
-            Value: 0
-          }
-        },
-        RealFeelTemperature: {
-          Metric: {
-            Value: 0
-          }
-        },
-        RelativeHumidity: 0,
-        Wind: {
-          Speed: {
-            Metric: {
-              Value: 0
-            }
-          }
-        },
-        Pressure: {
-          Metric: {
-            Value: 0
-          }
-        }
-      }
+      found: false,
+      city: {}
     }
   },
   methods: {
     getName() {
       axios
         .get(`${linkLocationKey}/${this.cityID}?apikey=${apiKey}&language=es`)
-
         .then((response) => {
           this.city = response.data
+          this.found = true
         })
-
-        .catch((err) => {
-          console.log(err)
-        })
-    },
-
-    getWeather() {
-      axios
-        .get(`${linkWeatherNow}/${this.cityID}?apikey=${apiKey}&language=es&details=true`)
-
-        .then((response) => {
-          this.weather = response
-        })
-
         .catch((err) => {
           console.log(err)
         })
@@ -71,13 +27,13 @@ export default {
   },
   mounted() {
     this.getName()
-    this.getWeather()
-  }
+  },
+  components: { WeatherNow }
 }
 </script>
 
 <template>
-  <div class="main">
+  <div class="main" v-if="found">
     <div class="city">
       <strong>{{ city.LocalizedName }}</strong>
       <p1>{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1>
@@ -86,11 +42,38 @@ export default {
 
   <div class="main">
     <div class="weather">
-        <div class="actual">
-          
-        </div>
+      <WeatherNow :cityID="cityID" />
     </div>
   </div>
+
+  <div class="main">
+    <div class="city">
+      <strong>Pronóstico para hoy</strong>
+    </div>
+  </div>
+
+  <div class="main">
+
+  </div>
+
+  <div class="main">
+    <div class="city">
+      <strong>Últimas 12 horas</strong>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="city">
+      <strong>Últimas 24 horas</strong>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="city">
+      <strong>Últimos 5 días</strong>
+    </div>
+  </div>
+
 </template>
 
 <style>
@@ -101,6 +84,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 15px 0;
+  margin-bottom: 20px;
 }
 
 .city {
@@ -112,13 +96,16 @@ export default {
 }
 
 .city strong {
-  font-size: 45px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
   font-weight: bold;
 }
 
 .weather {
-    width: 80%;
-    background-color: #aaaaaa;
-    padding: 20px;
+  width: 80%;
+  background-color: #f3f6f7;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 </style>

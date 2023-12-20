@@ -21,7 +21,7 @@ export default {
 
 <template>
   <div class="card">
-    <div class="city">
+    <div class="cityCard">
       <strong class="name">{{ city.LocalizedName }}</strong>
       <p1 class="state">{{ city.AdministrativeArea.LocalizedName }}, {{ city.Country.LocalizedName }}</p1>
     </div>
@@ -42,21 +42,19 @@ export default {
   border-bottom: 1px solid #aaaaaa;
 }
 
-.city {
+.cityCard {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
 
-.city strong {
-  font-size: 20px;
-}
-
-.city p1 {
+.citcityCardy p1 {
   font-size: 16px;
 }
 
-.name {
+.cityCard .name {
   display: grid;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .button {
