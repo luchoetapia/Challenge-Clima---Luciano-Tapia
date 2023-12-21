@@ -103,8 +103,8 @@ li, a {
   display: none;
   position: absolute;
   right: 2rem;
-  top: 100px;
-  width: 300px;
+  top: 68px;
+  width: 200px;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
   border-radius: 10px;
@@ -114,7 +114,7 @@ li, a {
 }
 
 .dropdown.open {
-  height: 200px;
+  height: 105px;
 }
 
 .dropdown li {

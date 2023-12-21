@@ -92,6 +92,11 @@ p1 {
   margin-left: 5%;
 }
 
+.title h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+}
+
 .list ul {
   width: 80%;
 }

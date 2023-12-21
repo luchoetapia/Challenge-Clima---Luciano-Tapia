@@ -85,12 +85,19 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
 }
 
 .city strong {
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
   font-weight: bold;
+}
+
+.city p1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .weather {
