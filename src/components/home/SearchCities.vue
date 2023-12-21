@@ -63,7 +63,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap');
 
 p1 {

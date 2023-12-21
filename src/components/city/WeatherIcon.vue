@@ -95,7 +95,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .iconDiv {
   width: 100%;
   display: flex;

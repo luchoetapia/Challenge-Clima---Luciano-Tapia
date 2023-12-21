@@ -134,7 +134,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .div1 {
   display: flex;
   justify-content: space-between;

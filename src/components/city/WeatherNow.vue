@@ -81,7 +81,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .center {
   display: flex;
   justify-content: center;

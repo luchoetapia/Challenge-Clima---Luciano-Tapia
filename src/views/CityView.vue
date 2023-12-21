@@ -68,7 +68,7 @@ export default {
 
 </template>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .main {
