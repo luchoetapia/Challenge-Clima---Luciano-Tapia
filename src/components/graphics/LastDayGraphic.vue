@@ -8,7 +8,6 @@ import { apiKey } from '@/utils/apiKey'
 
 
 export default {
-  name: 'TwelveHoursGraphic',
   components: { Line },
   props: {
     cityID: null

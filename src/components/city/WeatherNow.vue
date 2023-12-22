@@ -65,7 +65,7 @@ export default {
       </div>
       <div class="table">
         <div class="data">
-          <p1>Presión Atmosférica: </p1>
+          <p1>Presión: </p1>
           <p2>{{ weather.Pressure.Metric.Value }} mb</p2>
         </div>
         <div class="data">
@@ -145,5 +145,20 @@ export default {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .secondaryData {
+    display: grid;
+  }
+
+  .secondaryData .table {
+    width: 100%;
+  }
+
+  .data {
+    align-items: baseline;
+    width: 130%;
+  }
 }
 </style>

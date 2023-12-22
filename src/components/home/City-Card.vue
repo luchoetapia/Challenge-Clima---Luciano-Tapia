@@ -6,11 +6,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      cit2: this.city
-    }
-  },
   methods: {
     redirect() {
       this.$router.push({ name: 'city', query: { key: this.city.Key } })

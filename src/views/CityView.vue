@@ -6,6 +6,7 @@ import WeatherNow from '@/components/city/WeatherNow.vue'
 import DailyForecast from '@/components/city/DailyForecast.vue'
 import TwelveHoursGraphic from '@/components/graphics/TwelveHoursGraphic.vue'
 import LastDayGraphic from '@/components/graphics/LastDayGraphic.vue'
+import FiveDaysGraphic from '@/components/graphics/FiveDaysGraphic.vue'
 
 export default {
   data() {
@@ -31,7 +32,7 @@ export default {
   mounted() {
     this.getName()
   },
-  components: { WeatherNow, DailyForecast, TwelveHoursGraphic, LastDayGraphic }
+  components: { WeatherNow, DailyForecast, TwelveHoursGraphic, LastDayGraphic, FiveDaysGraphic }
 }
 </script>
 
@@ -64,6 +65,10 @@ export default {
     <div class="city">
       <strong>Próximos 5 días</strong>
     </div>
+  </div>
+
+  <div class="main">
+    <FiveDaysGraphic :cityID="cityID" />
   </div>
 
   <div class="main">

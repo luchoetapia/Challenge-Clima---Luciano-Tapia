@@ -205,4 +205,33 @@ export default {
   font-size: 28px;
   font-weight: bold;
 }
+
+@media (max-width: 850px) {
+  .div1 {
+    display: grid;
+    justify-content: center;
+  }
+
+  .temps {
+    width: 90%;
+    margin: 10px 0;
+    min-width: 300px;
+  }
+
+  .temps .data {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  .dayNight {
+    display: grid;
+    justify-content: center;
+  }
+
+  .day {
+    width: 90%;
+    margin: 10px 0;
+    max-width: 250px;
+  }
+}
 </style>

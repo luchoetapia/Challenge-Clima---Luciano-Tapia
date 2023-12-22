@@ -3,12 +3,11 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from 'vue-chartjs'
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 import axios from 'axios'
-import { link12Horas } from '@/utils/linksAPI'
+import { link5Dias } from '@/utils/linksAPI'
 import { apiKey } from '@/utils/apiKey'
 
 
 export default {
-  name: 'TwelveHoursGraphic',
   components: { Line },
   props: {
     cityID: null
@@ -16,7 +15,8 @@ export default {
   data() {
     return {
       labels: [],
-      values: [],
+      tempsMax: [],
+      tempsMin: [],
       chartData: [],
       chartOptions: {
         responsive: true
@@ -25,20 +25,26 @@ export default {
     }
   },
   async mounted() {
-    const response = await axios.get(`${link12Horas}/${this.cityID}?apikey=${apiKey}&language=es&metric=true`)
-
-    response.data.map((res) => {
-      this.labels.push(res.DateTime[11] + res.DateTime[12] + ':00')
-      this.values.push(res.Temperature.Value)
+    const response = await axios.get(`${link5Dias}/${this.cityID}?apikey=${apiKey}&language=es&metric=true`)
+    
+    response.data.DailyForecasts.map((res) => {
+      this.labels.push(res.Date[8] + res.Date[9] + '/' + res.Date[5] + res.Date[6] + "/" + res.Date[0] + res.Date[1] + res.Date[2] + res.Date[3])
+      this.tempsMax.push(res.Temperature.Maximum.Value)
+      this.tempsMin.push(res.Temperature.Minimum.Value)
     })
 
     this.chartData = {
       labels: this.labels,
       datasets: [
         {
-          label: 'Temperatura',
-          data: this.values,
+          label: 'Temperatura Máxima',
+          data: this.tempsMax,
           backgroundColor: "#0088a9"
+        },
+        {
+          label: 'Temperatura Mínima',
+          data: this.tempsMin,
+          backgroundColor: "#ff0000"
         }
       ]
     }
@@ -50,7 +56,7 @@ export default {
 
 <template>
   <div class="graphic" v-if="isVisible">
-    <Line :data="chartData" :options="chartOptions"  />
+    <Line :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
@@ -58,7 +64,7 @@ export default {
 .graphic {
   background-color: #f3f6f7;
   width: 80%;
-  padding: 25px;
+  padding: 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
 }
