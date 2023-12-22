@@ -4,6 +4,7 @@ import { apiKey } from '../utils/apiKey'
 import { linkLocationKey } from '../utils/linksAPI'
 import WeatherNow from '@/components/city/WeatherNow.vue'
 import DailyForecast from '@/components/city/DailyForecast.vue'
+import TwelveHoursGraphic from '@/components/graphics/TwelveHoursGraphic.vue'
 
 export default {
   data() {
@@ -29,7 +30,7 @@ export default {
   mounted() {
     this.getName()
   },
-  components: { WeatherNow, DailyForecast }
+  components: { WeatherNow, DailyForecast, TwelveHoursGraphic }
 }
 </script>
 
@@ -50,7 +51,17 @@ export default {
 
   <div class="main">
     <div class="city">
-      <strong>Últimas 12 horas</strong>
+      <strong>Próximas 12 horas</strong>
+    </div>
+  </div>
+
+  <div class="main">
+    <TwelveHoursGraphic :cityID="cityID" />
+  </div>
+
+  <div class="main">
+    <div class="city">
+      <strong>Próximos 5 días</strong>
     </div>
   </div>
 
@@ -61,9 +72,7 @@ export default {
   </div>
 
   <div class="main">
-    <div class="city">
-      <strong>Últimos 5 días</strong>
-    </div>
+
   </div>
 
 </template>

@@ -21,7 +21,6 @@ export default {
         .get(`${linkHoy}/${this.cityID}?apikey=${apiKey}&language=es&details=true&metric=true`)
         .then((response) => {
           this.day = response.data
-          console.log(this.day)
           this.sunrise = this.day.DailyForecasts[0].Sun.Rise
           this.sunset = this.day.DailyForecasts[0].Sun.Set
           this.found = true
