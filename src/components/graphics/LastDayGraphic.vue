@@ -3,7 +3,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from 'vue-chartjs'
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 import axios from 'axios'
-import { link12Horas } from '@/utils/linksAPI'
+import { link24Horas } from '@/utils/linksAPI'
 import { apiKey } from '@/utils/apiKey'
 
 
@@ -25,11 +25,11 @@ export default {
     }
   },
   async mounted() {
-    const response = await axios.get(`${link12Horas}/${this.cityID}?apikey=${apiKey}&language=es&metric=true`)
+    const response = await axios.get(`${link24Horas}/${this.cityID}/historical/24?apikey=${apiKey}&language=es&metric=true`)
 
     response.data.map((res) => {
-      this.labels.push(res.DateTime[11] + res.DateTime[12] + ':00')
-      this.values.push(res.Temperature.Value)
+      this.labels.push(res.LocalObservationDateTime[11] + res.LocalObservationDateTime[12] + ':00')
+      this.values.push(res.Temperature.Metric.Value)
     })
 
     this.chartData = {
