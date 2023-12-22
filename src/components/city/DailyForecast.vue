@@ -129,7 +129,6 @@ export default {
         <p2>{{ day.DailyForecasts[0].Night.Wind.Speed.Value }} km/h</p2>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -156,6 +155,12 @@ export default {
   padding: 5px;
 }
 
+.data p1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .data p2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
@@ -164,17 +169,21 @@ export default {
 
 .text {
   margin: 25px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text p1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 22px;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .dayNight {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .day {
@@ -185,9 +194,15 @@ export default {
   display: grid;
 }
 
+.day p1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .day p3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
 }
 </style>

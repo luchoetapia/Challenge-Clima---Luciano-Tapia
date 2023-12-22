@@ -135,9 +135,15 @@ export default {
   padding: 5px;
 }
 
+.data p1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .data p2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
 }
 </style>
