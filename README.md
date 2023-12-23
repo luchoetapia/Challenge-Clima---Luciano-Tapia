@@ -2,7 +2,7 @@
 
 Plataforma de clima,desarrollada con Vue.js y conectada a AcuWeather (https://developer.accuweather.com/), en el cual se puede buscar y seleccionar cualquier ciudad del mundo (Siempre y cuando este en el sistema de AcuWeather) y ver diversos datos de como se encuentra el clima en dicha ciudad. Tambien se pueden ver algunos gráficos que informan las variaciones en las siguientes horas y días.
 
-##Manual de usuario
+## Manual de usuario
 
 Al entrar a la página, se puede ver un listado con las 50 ciudades mas buscadas y un input para buscar cualquier otra ciudad.
 
@@ -10,7 +10,7 @@ Al ir ingresando letras, se va actualizando un listado con varias ciudades, corr
 
 Cuando se ingresa a la ciudad, se observan los datos y los gráficos ofrecidos por la plataforma.
 
-##Instalación
+## Instalación
 
 1- git clone https://gitlab.com/luciano-tapia/challenge-clima-luciano-tapia.git
 
@@ -20,7 +20,7 @@ Cuando se ingresa a la ciudad, se observan los datos y los gráficos ofrecidos p
 
 4- npm run dev
 
-##Paquetes incluidos
+## Paquetes incluidos
 
 - "@fortawesome/fontawesome-svg-core": "^6.5.1",
 - "@fortawesome/free-solid-svg-icons": "^6.5.1"
@@ -32,15 +32,15 @@ Cuando se ingresa a la ciudad, se observan los datos y los gráficos ofrecidos p
 - "vue-chartjs": "^5.3.0"
 - "vue-router": "^4.2.5"
 
-##Autor
+## Autor
 
 Luciano Ezequiel Tapia (@luciano.etapia)
 
-###Contacto
+### Contacto
 
 luciano.etapia@gmail.com
 
-##Links de API utilizados
+## Links de API utilizados
 
 - https://developer.accuweather.com/accuweather-forecast-api/apis/get/forecasts/v1/daily/1day/%7BlocationKey%7D
 - https://developer.accuweather.com/accuweather-forecast-api/apis/get/forecasts/v1/daily/5day/%7BlocationKey%7D
