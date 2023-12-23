@@ -12,7 +12,7 @@ Cuando se ingresa a la ciudad, se observan los datos y los gráficos ofrecidos p
 
 ## Instalación
 
-1- git clone https://github.com/luchoetapia/Challenge-Clima-Luciano-Tapia.git)
+1- git clone https://github.com/luchoetapia/Challenge-Clima-Luciano-Tapia.git
 
 2- cd ./challenge-clima-luciano-tapia
 
