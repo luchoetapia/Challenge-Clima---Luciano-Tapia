@@ -40,12 +40,19 @@ export default {
         {
           label: 'Temperatura Máxima',
           data: this.tempsMax,
-          backgroundColor: "#0088a9"
+          backgroundColor: "#ff0000",
+          borderColor: "#ff0000",
+          radius: 8,
+          borderWidth: 2,
+          
         },
         {
           label: 'Temperatura Mínima',
           data: this.tempsMin,
-          backgroundColor: "#ff0000"
+          backgroundColor: "#0088a9",
+          borderColor: "#0088a9",
+          radius: 8,
+          borderWidth: 2,
         }
       ]
     }

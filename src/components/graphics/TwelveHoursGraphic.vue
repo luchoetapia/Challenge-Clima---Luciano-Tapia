@@ -19,7 +19,7 @@ export default {
       values: [],
       chartData: [],
       chartOptions: {
-        responsive: true
+        responsive: true,
       },
       isVisible: false
     }
@@ -39,7 +39,10 @@ export default {
         {
           label: 'Temperatura',
           data: this.values,
-          backgroundColor: "#0088a9"
+          backgroundColor: "#0088a9",
+          borderColor: "#0088a9",
+          radius: 8,
+          borderWidth: 2,
         }
       ]
     }
