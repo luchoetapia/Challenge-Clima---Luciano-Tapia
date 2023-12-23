@@ -28,7 +28,8 @@ export default {
     const response = await axios.get(`${link12Horas}/${this.cityID}?apikey=${apiKey}&language=es&metric=true`)
 
     response.data.map((res) => {
-      this.labels.push(res.DateTime[11] + res.DateTime[12] + ':00')
+      const date = new Date(res.DateTime)
+      this.labels.push(date.getHours() + ":" + date.getMinutes())
       this.values.push(res.Temperature.Value)
     })
 

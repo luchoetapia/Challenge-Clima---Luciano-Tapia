@@ -21,7 +21,6 @@ export default {
     <nav class="nav__links">
       <ul>
         <li><a href="/">Inicio</a></li>
-        <li><a href="/about">Acerca de</a></li>
       </ul>
     </nav>
 
@@ -32,7 +31,6 @@ export default {
 
   <div class="dropdown">
     <li><a href="/">Inicio</a></li>
-    <li><a href="/about">Acerca de</a></li>
   </div>
 </template>
 
@@ -114,7 +112,7 @@ li, a {
 }
 
 .dropdown.open {
-  height: 105px;
+  height: 50px;
 }
 
 .dropdown li {

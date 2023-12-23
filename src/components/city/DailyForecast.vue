@@ -21,8 +21,8 @@ export default {
         .get(`${linkHoy}/${this.cityID}?apikey=${apiKey}&language=es&details=true&metric=true`)
         .then((response) => {
           this.day = response.data
-          this.sunrise = this.day.DailyForecasts[0].Sun.Rise
-          this.sunset = this.day.DailyForecasts[0].Sun.Set
+          this.sunrise = new Date (this.day.DailyForecasts[0].Sun.Rise)
+          this.sunset = new Date (this.day.DailyForecasts[0].Sun.Set)
           this.found = true
         })
         .catch((err) => {
@@ -65,12 +65,12 @@ export default {
     <div class="temps">
       <div class="data">
         <p1>Amanecer: </p1>
-        <p2>{{ sunrise[11] + sunrise[12] + ':' + sunrise[14] + sunrise[15] }}</p2>
+        <p2>{{ sunrise.getHours() + ":" + sunrise.getMinutes() }}</p2>
       </div>
 
       <div class="data">
         <p1>Atardecer: </p1>
-        <p2>{{ sunset[11] + sunset[12] + ':' + sunset[14] + sunset[15] }}</p2>
+        <p2>{{ sunset.getHours() + ":" + sunset.getMinutes() }}</p2>
       </div>
     </div>
   </div>
@@ -208,30 +208,29 @@ export default {
 
 @media (max-width: 850px) {
   .div1 {
-    display: grid;
-    justify-content: center;
+    display: block;
+    width: 85%;
+    margin-left: 10%;
   }
 
   .temps {
     width: 90%;
     margin: 10px 0;
-    min-width: 300px;
   }
 
   .temps .data {
     width: 90%;
-    max-width: 250px;
   }
 
   .dayNight {
-    display: grid;
-    justify-content: center;
+    display: block;
+    width: 100%;
+    margin-left: 10%;
   }
 
   .day {
-    width: 90%;
+    width: 75%;
     margin: 10px 0;
-    max-width: 250px;
   }
 }
 </style>

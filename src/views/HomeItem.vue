@@ -54,13 +54,14 @@ export default {
   display: grid;
   justify-content: center;
   align-items: center;
-  background: url('../../../public/photos/blue-sky-background-and-white-clouds-vector.jpg');
+  background: url('../utils/photos/photo-1509773896068-7fd415d91e2e.jpeg');
   padding: 50px 0;
 }
 
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
+  color: #ffffff;
 }
 
 .msg {

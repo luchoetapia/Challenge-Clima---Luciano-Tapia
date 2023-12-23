@@ -27,7 +27,8 @@ export default {
     const response = await axios.get(`${link24Horas}/${this.cityID}/historical/24?apikey=${apiKey}&language=es&metric=true`)
 
     response.data.map((res) => {
-      this.labels.push(res.LocalObservationDateTime[11] + res.LocalObservationDateTime[12] + ':00')
+      const date = new Date(res.LocalObservationDateTime)
+      this.labels.push(date.getHours() + ":" + date.getMinutes())
       this.values.push(res.Temperature.Metric.Value)
     })
 

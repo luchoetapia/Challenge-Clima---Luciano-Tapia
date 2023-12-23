@@ -28,7 +28,8 @@ export default {
     const response = await axios.get(`${link5Dias}/${this.cityID}?apikey=${apiKey}&language=es&metric=true`)
     
     response.data.DailyForecasts.map((res) => {
-      this.labels.push(res.Date[8] + res.Date[9] + '/' + res.Date[5] + res.Date[6] + "/" + res.Date[0] + res.Date[1] + res.Date[2] + res.Date[3])
+      const date = new Date (res.Date)
+      this.labels.push(date.getDate() + '/' + date.getMonth() + "/" + date.getFullYear())
       this.tempsMax.push(res.Temperature.Maximum.Value)
       this.tempsMin.push(res.Temperature.Minimum.Value)
     })
